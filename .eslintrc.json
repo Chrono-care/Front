@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals","plugin:sonarjs/recommended","eslint:all", "prettier"],
+  "extends": ["next/core-web-vitals","plugin:sonarjs/recommended","eslint:all", "plugin:prettier/recommended"],
   "plugins": ["sonarjs"],
   "rules": {
     "no-undef":0,

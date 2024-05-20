@@ -1,11 +1,9 @@
-import { Box, Typography } from '@mui/material';
-
-const Toto = () => {
+export const Toto = () => {
     return (
-        <Box>
-            <Typography variant={'h1'}>Toto</Typography>
-        </Box>
-    );
-};
+        <div>
+            <h1>Toto</h1>
+        </div>
+    )
+}
 
-export default Toto;
+export default Toto 

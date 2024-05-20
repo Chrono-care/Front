@@ -1,8 +1,10 @@
+import { Box, Typography } from "@mui/material";
+
 export const Toto = () => {
     return (
-        <div>
-            <h1>Toto</h1>
-        </div>
+        <Box>
+            <Typography>Toto</Typography>
+        </Box>
     )
 }
 

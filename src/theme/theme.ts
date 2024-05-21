@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { createTheme } from "@mui/material";
-import { palette } from "./palette/palette";
-import { typography } from "./typography/typography";
+import { createTheme } from '@mui/material';
+import { palette } from './palette/palette';
+import { typography } from './typography/typography';
 
 export const theme = createTheme({
     palette,
@@ -10,8 +10,8 @@ export const theme = createTheme({
     components: {
         MuiButton: {
             defaultProps: {
-                variant: "contained",
-                size: "large",
+                variant: 'contained',
+                size: 'large',
             },
         },
     },

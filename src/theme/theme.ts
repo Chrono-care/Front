@@ -10,9 +10,9 @@ export const theme = createTheme({
     components: {
         MuiButton: {
             defaultProps: {
-                variant: 'contained',
-                size: 'large'
+                variant: "contained",
+                size: "large",
             },
-        }
-    }
-})
+        },
+    },
+});

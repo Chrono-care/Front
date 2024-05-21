@@ -2,7 +2,11 @@
   "extends": ["next/core-web-vitals","plugin:sonarjs/recommended","eslint:all", "prettier", "plugin:prettier/recommended"],
   "plugins": ["sonarjs"],
   "rules": {
-    "indent": ["error", 4],
+    "prettier/prettier": ["error", {
+      "tabWidth": 4,
+      "singleQuote": true,
+      "endOfLine":"auto"
+    }],
     "no-undef":0,
     "camelcase":1,
     "capitalized-comments":0,

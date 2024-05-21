@@ -1,0 +1,10 @@
+{
+  "prettier/prettier": [
+    "error",
+    {
+      "editorconfig": true,
+      "semi": true
+    }
+  ]
+}
+

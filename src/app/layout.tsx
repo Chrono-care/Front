@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material';
+import { Box, Container, ThemeProvider } from '@mui/material';
 import { theme } from '@/theme/theme';
-import { Header } from '@/app/components/modules/Header';
+import { Header } from '@/app/components/modules/Header/Header';
+import { Footer } from '@/app/components/modules/Footer/Footer';
+import './app.css';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
     title: 'Home',
@@ -12,15 +15,27 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="fr">
             <body>
                 <AppRouterCacheProvider>
                     <ThemeProvider theme={theme}>
-                        <Header />
-                        {children}
+                        <Container
+                            maxWidth="lg"
+                            sx={{
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <Header />
+                            <Box marginY={8} height={'100%'} component={'main'}>
+                                {children}
+                            </Box>
+                            <Footer />
+                        </Container>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>

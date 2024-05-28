@@ -14,5 +14,25 @@ export const theme = createTheme({
                 size: 'large',
             },
         },
+        MuiTextField: {
+            defaultProps: {
+                size: 'small',
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                    '& .MuiOutlinedInput-root': {
+                        borderRadius: 20,
+                    },
+                },
+            },
+        },
+        MuiFormControl: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                },
+            },
+        },
     },
 });

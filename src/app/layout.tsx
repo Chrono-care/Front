@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { Box, Container, ThemeProvider } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import { theme } from '@/theme/theme';
 import { Header } from '@/app/components/modules/Header/Header';
 import { Footer } from '@/app/components/modules/Footer/Footer';
@@ -22,8 +22,7 @@ export default function RootLayout({
             <body>
                 <AppRouterCacheProvider>
                     <ThemeProvider theme={theme}>
-                        <Container
-                            maxWidth="lg"
+                        <Box
                             sx={{
                                 height: '100%',
                                 display: 'flex',
@@ -35,7 +34,7 @@ export default function RootLayout({
                                 {children}
                             </Box>
                             <Footer />
-                        </Container>
+                        </Box>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>

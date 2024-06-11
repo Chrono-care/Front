@@ -13,6 +13,12 @@ export const theme = createTheme({
                 variant: 'contained',
                 size: 'large',
             },
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                    padding: '6px 16px',
+                },
+            },
         },
         MuiTextField: {
             defaultProps: {

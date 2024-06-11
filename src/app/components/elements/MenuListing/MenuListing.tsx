@@ -24,7 +24,6 @@ export const MenuListing: FC<MenuListingProps> = ({
     return (
         <div>
             <Menu
-                id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}

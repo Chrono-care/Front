@@ -10,9 +10,20 @@ import {
     useTheme,
 } from '@mui/material';
 import { Menu, Search } from '@mui/icons-material';
+import * as React from 'react';
+import { MenuListing } from '@/app/components/elements/MenuListing/MenuListing';
 
 export const Header = () => {
     const theme = useTheme();
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <Box component={'header'}>
             <Box>
@@ -30,9 +41,14 @@ export const Header = () => {
                         }}
                     >
                         <Box display="flex">
-                            <IconButton size={'small'}>
+                            <IconButton onClick={handleClick} size={'small'}>
                                 <Menu color={'inherit'} />
                             </IconButton>
+                            <MenuListing
+                                anchorEl={anchorEl}
+                                open={open}
+                                handleClose={handleClose}
+                            />
                             <Typography
                                 display={'flex'}
                                 alignItems={'center'}

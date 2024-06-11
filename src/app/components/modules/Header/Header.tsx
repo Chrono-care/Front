@@ -12,16 +12,27 @@ import {
 import { Menu, Search } from '@mui/icons-material';
 import * as React from 'react';
 import { MenuListing } from '@/app/components/elements/MenuListing/MenuListing';
+import { SearchInput } from '@/app/components/elements/SearchInput/SearchInput';
 
 export const Header = () => {
-    const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [anchorSearch, setAnchorSearch] = React.useState<null | HTMLElement>(
+        null,
+    );
+    const theme = useTheme();
     const open = Boolean(anchorEl);
+    const openSearch = Boolean(anchorSearch);
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
+    const handleCloseMenu = () => {
         setAnchorEl(null);
+    };
+    const handleCloseSearch = () => {
+        setAnchorSearch(null);
+    };
+    const handleHover = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorSearch(event.currentTarget);
     };
 
     return (
@@ -47,7 +58,7 @@ export const Header = () => {
                             <MenuListing
                                 anchorEl={anchorEl}
                                 open={open}
-                                handleClose={handleClose}
+                                handleClose={handleCloseMenu}
                             />
                             <Typography
                                 display={'flex'}
@@ -68,6 +79,8 @@ export const Header = () => {
                         </Link>
                         <Box display="flex">
                             <IconButton
+                                onMouseEnter={handleHover}
+                                onClick={handleHover}
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -87,6 +100,11 @@ export const Header = () => {
                             >
                                 Rechercher
                             </Typography>
+                            <SearchInput
+                                anchorEl={anchorSearch}
+                                display={openSearch}
+                                handleClose={handleCloseSearch}
+                            />
                         </Box>
                     </Toolbar>
                 </AppBar>

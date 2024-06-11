@@ -59,34 +59,12 @@ const Toto = () => {
             <Typography variant="h6" sx={{ marginBottom: 2 }}>
                 Boutons
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    sx={{
-                        borderRadius: '20px',
-                        padding: '6px 16px',
-                    }}
-                >
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Button variant="contained" color="secondary">
                     Rechercher
                 </Button>
-                <Button
-                    color="primary"
-                    sx={{
-                        borderRadius: '20px',
-                        padding: '6px 16px',
-                    }}
-                >
-                    Connexion
-                </Button>
-                <Button
-                    variant="outlined"
-                    color="secondary"
-                    sx={{
-                        borderRadius: '20px',
-                        padding: '6px 16px',
-                    }}
-                >
+                <Button color="primary">Connexion</Button>
+                <Button variant="outlined" color="secondary">
                     Inscription
                 </Button>
             </Box>

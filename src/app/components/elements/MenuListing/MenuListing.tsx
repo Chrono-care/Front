@@ -2,17 +2,23 @@ import * as React from 'react';
 import { FC } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { MenuListingType } from '@/app/components/elements/MenuListing/MenuListing.type';
+import { Box } from '@mui/material';
 
 type MenuListingProps = {
     anchorEl: HTMLElement | null;
     open: boolean;
     handleClose: () => void;
+    list: MenuListingType[];
+    anonymous: boolean;
 };
 
 export const MenuListing: FC<MenuListingProps> = ({
     open,
     handleClose,
     anchorEl,
+    list,
+    anonymous,
 }) => {
     const handleLogout = () => {
         handleClose();
@@ -22,7 +28,7 @@ export const MenuListing: FC<MenuListingProps> = ({
         window.location.replace(route);
     };
     return (
-        <div>
+        <Box>
             <Menu
                 anchorEl={anchorEl}
                 open={open}
@@ -31,14 +37,27 @@ export const MenuListing: FC<MenuListingProps> = ({
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={() => handleNavigation('/profile')}>
-                    Profile
-                </MenuItem>
-                <MenuItem onClick={() => handleNavigation('/account')}>
-                    My account
-                </MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                {anonymous ? (
+                    <MenuItem onClick={() => handleNavigation('/login')}>
+                        Login
+                    </MenuItem>
+                ) : (
+                    list.map((item) =>
+                        item.key === 'logout' ? (
+                            <MenuItem key={item.key} onClick={handleLogout}>
+                                {item.value}
+                            </MenuItem>
+                        ) : (
+                            <MenuItem
+                                key={item.key}
+                                onClick={() => handleNavigation(`/${item.key}`)}
+                            >
+                                {item.value}
+                            </MenuItem>
+                        ),
+                    )
+                )}
             </Menu>
-        </div>
+        </Box>
     );
 };

@@ -13,6 +13,7 @@ import { Menu, Search } from '@mui/icons-material';
 import * as React from 'react';
 import { MenuListing } from '@/app/components/elements/MenuListing/MenuListing';
 import { SearchInput } from '@/app/components/elements/SearchInput/SearchInput';
+import { menuListing } from '@/app/components/modules/Header/header.constant';
 
 export const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -59,6 +60,8 @@ export const Header = () => {
                                 anchorEl={anchorEl}
                                 open={open}
                                 handleClose={handleCloseMenu}
+                                list={menuListing}
+                                anonymous={false}
                             />
                             <Typography
                                 display={'flex'}

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Login',
-    description: 'Login of the app',
+    title: 'Connexion',
+    description: 'Page connexion du site',
 };
 
 export default function LoginLayout({

@@ -12,7 +12,7 @@ const LoginPage = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingTop: '15vh',
+                paddingTop: 8,
             }}
         >
             <LoginForm />

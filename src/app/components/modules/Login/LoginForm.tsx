@@ -3,7 +3,7 @@
 import React from 'react';
 import { Box, Button, Link, Paper, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
-import validationSchema from './validationSchema';
+import { loginFormValidationSchema } from '@/app/components/modules/Login/loginFormValidationSchema';
 
 const LoginForm = () => {
     const handleSubmit = (values: { email: string; password: string }) => {
@@ -12,7 +12,7 @@ const LoginForm = () => {
 
     const formik = useFormik({
         initialValues: { email: '', password: '' },
-        validationSchema,
+        validationSchema: loginFormValidationSchema,
         onSubmit: handleSubmit,
     });
 

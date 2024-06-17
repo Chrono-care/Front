@@ -3,7 +3,7 @@
 import React from 'react';
 import { Box, Button, Link, Paper, TextField, Typography } from '@mui/material';
 import { useFormik } from 'formik';
-import { loginFormValidationSchema } from '@/app/components/modules/Login/loginFormValidationSchema';
+import { loginFormValidationSchema } from '@/app/components/modules/Login/loginForm.constant';
 
 const LoginForm = () => {
     const handleSubmit = (values: { email: string; password: string }) => {

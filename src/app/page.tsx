@@ -1,9 +1,10 @@
-import { Box, Typography } from '@mui/material';
+import { Container } from '@mui/material';
+import { PublicHomePage } from '@/app/components/modules/PublicHomePage/PublicHomePage';
 
 export default function Home() {
     return (
-        <Box>
-            <Typography variant={'h1'}>Hello</Typography>
-        </Box>
+        <Container maxWidth={'lg'}>
+            <PublicHomePage />
+        </Container>
     );
 }

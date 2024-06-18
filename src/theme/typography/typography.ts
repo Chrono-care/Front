@@ -15,7 +15,7 @@ export const typography = {
     h3: {
         fontSize: '2rem',
         fontWeight: 600,
-        color: palette.text.primary,
+        color: palette.text.secondary,
     },
     h4: {
         fontSize: '1.5rem',

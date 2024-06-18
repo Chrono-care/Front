@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FC } from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { MenuListingType } from '@/app/components/elements/MenuListing/MenuListing.type';
+import { MenuListingType } from '@/app/components/elements/MenuListing/menuListing.type';
 import { Box } from '@mui/material';
 
 type MenuListingProps = {

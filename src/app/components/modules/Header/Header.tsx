@@ -61,7 +61,7 @@ export const Header = () => {
                                 open={open}
                                 handleClose={handleCloseMenu}
                                 list={menuListing}
-                                anonymous={false}
+                                anonymous={true}
                             />
                             <Typography
                                 display={'flex'}

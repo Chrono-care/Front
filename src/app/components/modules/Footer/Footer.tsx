@@ -1,11 +1,20 @@
 'use client';
 
-import { Box, Divider, Link, Stack, useTheme } from '@mui/material';
+import {
+    Box,
+    Divider,
+    Link,
+    Stack,
+    useMediaQuery,
+    useTheme,
+} from '@mui/material';
 
 export const Footer = () => {
     const theme = useTheme();
+    const mediaQuerySm = useMediaQuery(theme.breakpoints.down('sm'));
     return (
         <Box
+            position={!mediaQuerySm ? 'fixed' : 'sticky'}
             sx={{ backgroundColor: theme.palette.background.paper }}
             padding={2}
             display={'flex'}

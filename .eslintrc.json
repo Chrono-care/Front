@@ -15,6 +15,9 @@
     "default-case":0,
     "func-style":["error", "expression"],
     "id-denylist":0,
+    "id-length":  ["error", {
+      "min": 1
+    }],
     "logical-assignment-operators":0,
     "max-depth":[2,3],
     "max-lines":0,

@@ -28,6 +28,12 @@ export const validationSchema = Yup.object({
             /[@$!%*?&]/,
             'Le mot de passe doit contenir au moins un caractère spécial (@$!%*?&)',
         ),
+    confirmPassword: Yup.string()
+        .oneOf(
+            [Yup.ref('password'), null],
+            'Les mots de passe doivent être identique',
+        )
+        .required('Requis'),
     firstname: Yup.string().required('Le prénom est requis'),
     lastname: Yup.string().required('Le nom est requis'),
     countryCode: Yup.string().required('Le code du pays est requis'),

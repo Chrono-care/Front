@@ -14,9 +14,24 @@ export const validationSchema = Yup.object({
         .required("L'email est requis"),
     password: Yup.string()
         .required('Mot de passe est requis')
-        .min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
+        .min(8, 'Le mot de passe doit contenir au moins 8 caractères')
+        .matches(
+            /[A-Z]/,
+            'Le mot de passe doit contenir au moins une lettre majuscule',
+        )
+        .matches(
+            /[a-z]/,
+            'Le mot de passe doit contenir au moins une lettre minuscule',
+        )
+        .matches(/\d/, 'Le mot de passe doit contenir au moins un chiffre')
+        .matches(
+            /[@$!%*?&]/,
+            'Le mot de passe doit contenir au moins un caractère spécial (@$!%*?&)',
+        ),
     firstname: Yup.string().required('Le prénom est requis'),
     lastname: Yup.string().required('Le nom est requis'),
     countryCode: Yup.string().required('Le code du pays est requis'),
-    phone: Yup.string().required('Le téléphone est requis'),
+    phone: Yup.string()
+        .required('Le téléphone est requis')
+        .matches(/^\d+$/, 'Le téléphone doit contenir seulement des chiffres'),
 });

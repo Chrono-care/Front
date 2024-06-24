@@ -37,7 +37,7 @@ const LoginForm = () => {
                         helperText={formik.touched.email && formik.errors.email}
                     />
                 </Box>
-                <Box mb={1}>
+                <Box mb={2}>
                     <TextField
                         fullWidth
                         id="password"

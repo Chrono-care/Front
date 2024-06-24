@@ -17,6 +17,7 @@ const RegisterForm = () => {
     const handleSubmit = (values: {
         email: string;
         password: string;
+        confirmPassword: string;
         firstname: string;
         lastname: string;
         phone: string;
@@ -40,6 +41,7 @@ const RegisterForm = () => {
         initialValues: {
             email: '',
             password: '',
+            confirmPassword: '',
             firstname: '',
             lastname: '',
             phone: '',
@@ -91,6 +93,26 @@ const RegisterForm = () => {
                         }
                         helperText={
                             formik.touched.password && formik.errors.password
+                        }
+                    />
+                </Box>
+                <Box mb={3}>
+                    <TextField
+                        fullWidth
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        label="Confirmation du mot de passe"
+                        type="password"
+                        value={formik.values.confirmPassword}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                            formik.touched.confirmPassword &&
+                            Boolean(formik.errors.confirmPassword)
+                        }
+                        helperText={
+                            formik.touched.confirmPassword &&
+                            formik.errors.confirmPassword
                         }
                     />
                 </Box>

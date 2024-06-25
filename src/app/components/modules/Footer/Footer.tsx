@@ -14,7 +14,7 @@ export const Footer = () => {
     const mediaQuerySm = useMediaQuery(theme.breakpoints.down('sm'));
     return (
         <Box
-            position={!mediaQuerySm ? 'fixed' : 'sticky'}
+            position={mediaQuerySm ? 'sticky' : 'static'}
             sx={{ backgroundColor: theme.palette.background.paper }}
             padding={2}
             display={'flex'}

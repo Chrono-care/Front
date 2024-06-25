@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Container } from '@mui/material';
-import RegisterForm from '@/app/components/modules/Register/RegisterForm';
+import { RegisterForm } from '@/app/components/modules/Register/RegisterForm';
 
 const RegisterPage = () => {
     return (

@@ -12,26 +12,12 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { countryCodes, validationSchema } from './registerForm.constant';
+import { formattedPhoneValue } from '@/app/components/modules/Register/registerForm.method';
+import { RegisterFormType } from '@/app/components/modules/Register/registerForm.type';
 
-const RegisterForm = () => {
-    const handleSubmit = (values: {
-        email: string;
-        password: string;
-        confirmPassword: string;
-        firstname: string;
-        lastname: string;
-        phone: string;
-        countryCode: string;
-    }) => {
-        let formattedPhone = values.phone;
-        if (formattedPhone.charAt(0) === '0') {
-            formattedPhone = formattedPhone.substring(1);
-        }
-        const formattedPhoneAndCountry = values.countryCode + formattedPhone;
-        const formattedValues = {
-            ...values,
-            phone: formattedPhoneAndCountry,
-        };
+export const RegisterForm = () => {
+    const handleSubmit = (values: RegisterFormType) => {
+        const formattedValues = formattedPhoneValue(values);
         console.log('Registering', formattedValues);
         return;
         // TODO: implémenter la requête d'inscription ici
@@ -210,5 +196,3 @@ const RegisterForm = () => {
         </Paper>
     );
 };
-
-export default RegisterForm;

@@ -6,6 +6,7 @@ import { Header } from '@/app/components/modules/Header/Header';
 import { Footer } from '@/app/components/modules/Footer/Footer';
 import './app.css';
 import { ReactNode } from 'react';
+import ReactQueryProvider from '@/utils/providers/ReactQueryProvider';
 
 export const metadata: Metadata = {
     title: 'Home',
@@ -22,19 +23,25 @@ export default function RootLayout({
             <body>
                 <AppRouterCacheProvider>
                     <ThemeProvider theme={theme}>
-                        <Box
-                            sx={{
-                                height: '100%',
-                                display: 'flex',
-                                flexDirection: 'column',
-                            }}
-                        >
-                            <Header />
-                            <Box marginY={8} height={'100%'} component={'main'}>
-                                {children}
+                        <ReactQueryProvider>
+                            <Box
+                                sx={{
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <Header />
+                                <Box
+                                    marginY={8}
+                                    height={'100%'}
+                                    component={'main'}
+                                >
+                                    {children}
+                                </Box>
+                                <Footer />
                             </Box>
-                            <Footer />
-                        </Box>
+                        </ReactQueryProvider>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
             </body>

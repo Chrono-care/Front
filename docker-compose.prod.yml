@@ -1,0 +1,7 @@
+services:
+  front:
+    build:
+      target: prod      
+    container_name: front-app-prod
+    environment:
+      - NODE_ENV=production

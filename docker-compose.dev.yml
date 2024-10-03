@@ -1,0 +1,10 @@
+services:
+  front:
+    build:
+      target: dev
+    container_name: front-app-dev
+    volumes:
+      - ./app:/app
+      - ./entrypoint.sh:/entrypoint.sh
+    environment:
+      - NODE_ENV=development

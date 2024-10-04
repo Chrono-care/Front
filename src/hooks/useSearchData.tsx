@@ -1,23 +1,20 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
-interface UseSearchDataParams<T> {
-    fetchData: (
-        // eslint-disable-next-line no-unused-vars
-        params: Record<string, number | string | undefined>,
-    ) => Promise<T>;
-    page: number;
-    size: number;
-    sort: string | undefined;
-    filter: string | undefined;
-}
-
-export const useSearchData = <T,>({
-    fetchData,
-    page,
-    size,
-    sort,
-    filter,
-}: UseSearchDataParams<T>) => {
+export const useSearchData = <T,>(
+    // eslint-disable-next-line no-unused-vars
+    fetchData: (params: {
+        page?: number;
+        size?: number;
+        sort?: string;
+        filter?: string;
+    }) => Promise<T>,
+    {
+        page,
+        size,
+        filter,
+        sort,
+    }: { page?: number; size?: number; filter?: string; sort?: string },
+) => {
     const { status, data, error } = useQuery({
         queryKey: ['data', { page: page || 0, size: size || 15, filter, sort }],
         queryFn: () => fetchData({ page, size, sort, filter }),

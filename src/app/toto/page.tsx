@@ -2,6 +2,7 @@
 
 import { Box, Button, Container, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
+import { DataGridPaginated } from '@/app/components/modules/DataGridPaginated/DataGridPaginated';
 
 const Toto = () => {
     return (
@@ -71,6 +72,7 @@ const Toto = () => {
             <Box sx={{ marginTop: 4 }}>
                 <TextField id="outlined-basic" label="Recherche" />
             </Box>
+            <DataGridPaginated title={'Title'} />
         </Container>
     );
 };

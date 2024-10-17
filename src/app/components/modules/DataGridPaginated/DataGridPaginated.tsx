@@ -20,6 +20,7 @@ import {
     Typography,
 } from '@mui/material';
 import { ArrowLeft, ArrowRight } from '@mui/icons-material';
+import { FilterModal } from '@/app/components/elements/FilterModal/FilterModal';
 
 const createData = (
     name: string,
@@ -45,6 +46,11 @@ type DataGridPaginatedProps = {
 
 export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
     const [age, setAge] = React.useState('');
+    const [openFilterModal, setFilterModal] = React.useState(false);
+    const [filter, setFilter] = React.useState('filter=');
+
+    const handleOpenFilterModal = () => setFilterModal(true);
+    const handleCloseFilterModal = () => setFilterModal(false);
 
     const handleChange = (event: SelectChangeEvent) => {
         setAge(event.target.value);
@@ -53,20 +59,14 @@ export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
         <Container sx={{ mt: 2 }}>
             <Typography variant={'h3'}>{title}</Typography>
             <Box marginBottom={1} display={'flex'} justifyContent={'flex-end'}>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="filtres">Filtres</InputLabel>
-                    <Select
+                <Box margin={1}>
+                    <Button
                         variant={'outlined'}
-                        labelId="filtres"
-                        value={age}
-                        label="Filtres"
-                        onChange={handleChange}
+                        onClick={handleOpenFilterModal}
                     >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                    </Select>
-                </FormControl>
+                        Filtres
+                    </Button>
+                </Box>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
                     <InputLabel id="rangées">Rangées</InputLabel>
                     <Select
@@ -79,6 +79,7 @@ export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
                         <MenuItem value={5}>5</MenuItem>
                         <MenuItem value={10}>10</MenuItem>
                         <MenuItem value={15}>15</MenuItem>
+                        <MenuItem value={20}>20</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl sx={{ m: 1, minWidth: 120 }}>
@@ -146,6 +147,12 @@ export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
                     Suivant
                 </Button>
             </ButtonGroup>
+            <FilterModal
+                open={openFilterModal}
+                handleClose={handleCloseFilterModal}
+                filter={filter}
+                setFilter={setFilter}
+            />
         </Container>
     );
 };

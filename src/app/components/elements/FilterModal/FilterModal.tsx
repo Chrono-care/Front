@@ -36,6 +36,7 @@ export const FilterModal: FC<FilterModalProps> = ({
             method: '',
         },
         onSubmit: (values) => {
+            //TODO: call api
             console.log(values);
             // setFilter(filter + values.selectedFilter);
         },

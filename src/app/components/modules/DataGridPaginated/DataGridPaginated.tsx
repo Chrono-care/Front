@@ -22,6 +22,7 @@ import {
 import { ArrowLeft, ArrowRight } from '@mui/icons-material';
 import { FilterModal } from '@/app/components/elements/FilterModal/FilterModal';
 
+//TODO : Replace this with your data and connect with custom hook
 const createData = (
     name: string,
     calories: number,
@@ -82,20 +83,6 @@ export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
                         <MenuItem value={20}>20</MenuItem>
                     </Select>
                 </FormControl>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="trier">Trier</InputLabel>
-                    <Select
-                        variant={'outlined'}
-                        labelId="trier"
-                        value={age}
-                        label="Trier"
-                        onChange={handleChange}
-                    >
-                        <MenuItem value="">
-                            <em>None</em>
-                        </MenuItem>
-                    </Select>
-                </FormControl>
             </Box>
             <TableContainer component={Paper}>
                 <Table
@@ -139,14 +126,19 @@ export const DataGridPaginated: FC<DataGridPaginatedProps> = ({ title }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <ButtonGroup sx={{ mt: 2 }}>
-                <Button size={'small'} startIcon={<ArrowLeft />}>
-                    Précédent
-                </Button>
-                <Button size={'small'} endIcon={<ArrowRight />}>
-                    Suivant
-                </Button>
-            </ButtonGroup>
+            <Box display={'flex'} justifyContent={'space-between'}>
+                <ButtonGroup sx={{ mt: 2 }}>
+                    <Button size={'small'} startIcon={<ArrowLeft />}>
+                        Précédent
+                    </Button>
+                    <Button size={'small'} endIcon={<ArrowRight />}>
+                        Suivant
+                    </Button>
+                </ButtonGroup>
+                {/*//TODO : Replace [x] with current page and total page (e.g. total items / size of
+                page)*/}
+                <Typography margin={2}>Page [x]/[x]</Typography>
+            </Box>
             <FilterModal
                 open={openFilterModal}
                 handleClose={handleCloseFilterModal}

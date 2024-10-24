@@ -20,6 +20,16 @@ export const theme = createTheme({
                 },
             },
         },
+        MuiButtonGroup: {
+            defaultProps: {
+                size: 'small',
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                },
+            },
+        },
         MuiTextField: {
             defaultProps: {
                 size: 'small',
@@ -34,6 +44,34 @@ export const theme = createTheme({
             },
         },
         MuiFormControl: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                },
+            },
+        },
+        MuiInputLabel: {
+            defaultProps: {
+                size: 'small',
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                },
+            },
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 20,
+                },
+            },
+        },
+        MuiSelect: {
+            defaultProps: {
+                variant: 'outlined',
+                size: 'small',
+            },
             styleOverrides: {
                 root: {
                     borderRadius: 20,
